@@ -9,6 +9,43 @@ A comparative analysis of the Multinomial and Ordered Logit Models using the APS
 
 ---
 
+## How to Run
+
+1. Load the APS dataset into SAS:
+```sas
+   data aps;
+   set "/your-path/aps.sas7bdat";
+   run;
+```
+
+2. Run `analysis.sas` sequentially — the code follows 
+   this order:
+   - Data cleaning and variable recoding (age, neuro, 
+     behav, losgrp)
+   - Descriptive analysis using PROC FREQ with 
+     Chi-Square tests
+   - Binary Logit Model (0 vs 1, 0 vs 2, 1 vs 2)
+   - Multinomial Logit Model (GLOGIT link, two 
+     reference categories)
+   - Ordered Logit Model with proportional odds 
+     assumption testing
+   - Empirical logit plots for visual assumption 
+     checking (RACE, NEURO)
+   - Unequal slopes model as robustness check
+
+3. Key outputs:
+   - Maximum Likelihood Estimates
+   - Odds Ratio Estimates
+   - Predicted Probability Effect Plots
+   - Goodness-of-fit statistics (Deviance, 
+     Pearson Chi-Square)
+
+## Note
+The APS dataset is not included in this repository 
+due to data privacy. The code structure and 
+methodology are fully reproducible with a similar 
+categorical dataset.
+
 ## Research Question
 Does the nature of a dataset (nominal or ordinal response 
 variable) affect the choice of model selection between the 
